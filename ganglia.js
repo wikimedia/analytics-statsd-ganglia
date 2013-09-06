@@ -274,10 +274,12 @@ exports.init = function ( start, config, events ) {
     }
 
     if ( backendConfig.gangliaMulticast ) {
+        socket.on( 'listening', function () {
+            socket.setBroadcast( true );
+            socket.setMulticastTTL( 128 );
+            socket.addMembership( backendConfig.gangliaHost );
+        } );
         socket.bind();
-        socket.setBroadcast( true );
-        socket.setMulticastTTL( 128 );
-        socket.addMembership( backendConfig.gangliaHost );
     }
 
     templates.base.group = backendConfig.gangliaGroup;

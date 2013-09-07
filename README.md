@@ -16,7 +16,7 @@ Place ganglia.js in StatsD's backends directory (most likely
 /usr/share/statsd/backends). Then edit /etc/statsd/localConfig.js and
 add a reference to the "backends" configuration key. For example:
 
-    "backends": [ "./graphite", "./ganglia" ], 
+    { "backends": [ "./graphite", "./ganglia" ] }
 
 The following configuration options are available:
 
@@ -46,6 +46,7 @@ exclude it from Ganglia reporting. For example:
 License & copyright
 -------------------
 Copyright (c) 2013 Wikimedia Foundation <info@wikimedia.org>
+
 Copyright (c) 2013 Ori Livneh <ori@wikimedia.org>
 
 Permission is hereby granted, free of charge, to any person obtaining
